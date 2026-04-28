@@ -2,7 +2,7 @@
 const pathname = Astro.url.pathname;
 
 const navLinks = [
-  { href: "/about", label: "About" },
+  { href: "/", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "mailto:jan.skiba.poczta@proton.me", label: "Contact" },
 ];
@@ -17,7 +17,9 @@ function navLinkClass(href: string) {
     "text-gray-200!",
     "hover:border-blue-500/30 hover:text-blue-200 hover:shadow-blue-500/20 hover:shadow-sm",
     "focus:outline-none focus:ring-2 focus:ring-blue-500/50",
-    isActive ? "bg-white/10 border-blue-500/50 text-blue-100! shadow-blue-500/20" : "",
+    isActive
+      ? "bg-white/10 border-blue-500/50 text-blue-100! shadow-blue-500/20"
+      : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -37,7 +39,8 @@ function navLinkClass(href: string) {
           <span
             class="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 transition-all duration-300"
           ></span>
-          <span class="relative pointer-events-none text-lg font-bold text-gray-100"
+          <span
+            class="relative pointer-events-none text-lg font-bold text-gray-100"
             >janskiba.dev</span
           >
         </div>
@@ -105,7 +108,7 @@ function navLinkClass(href: string) {
 
 <script>
   const btn = document.getElementById(
-    "mobile-menu-btn"
+    "mobile-menu-btn",
   ) as HTMLButtonElement | null;
   const menu = document.getElementById("mobile-menu");
 
